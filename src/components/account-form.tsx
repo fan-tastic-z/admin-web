@@ -46,7 +46,9 @@ export default function AccountForm({ user, onSuccess, onCancel }: AccountFormPr
   const { data: organizations } = useQuery({
     queryKey: ['organizations', 'tree'],
     queryFn: async () => {
-      const response = await api.post('/organizations/tree', { limit_type: 'Root' })
+      const response = await api.get('/organizations/tree', {
+        params: { limit_type: 'Root' },
+      })
       const adapted = adaptBackendResponse(response.data)
       if (adapted.success && adapted.data) {
         // 根据实际API返回结构，数据在 organizations 字段中
