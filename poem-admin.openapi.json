@@ -526,49 +526,24 @@
       }
     },
     "/organizations/tree": {
-      "post": {
+      "get": {
         "summary": "组织树",
         "x-apifox-folder": "",
         "x-apifox-status": "developing",
         "deprecated": false,
         "description": "",
         "tags": [],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "limit_type": {
-                    "type": "string",
-                    "enum": [
-                      "Root",
-                      "FirstLevel",
-                      "SubOrganization",
-                      "SubOrganizationIncludeSelf"
-                    ],
-                    "x-apifox": {
-                      "enumDescriptions": {
-                        "Root": "",
-                        "FirstLevel": "",
-                        "SubOrganization": "",
-                        "SubOrganizationIncludeSelf": ""
-                      }
-                    }
-                  }
-                },
-                "x-apifox-orders": [
-                  "limit_type"
-                ],
-                "required": [
-                  "limit_type"
-                ],
-                "x-apifox-ignore-properties": []
-              }
+        "parameters": [
+          {
+            "name": "limit_type",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "成功",
@@ -669,6 +644,182 @@
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/6359336/apis/api-300355739-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/operation-logs": {
+      "get": {
+        "summary": "用户操作日志列表",
+        "x-apifox-folder": "",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page_no",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "total": {
+                          "type": "integer"
+                        },
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "account_id": {
+                                "type": "integer"
+                              },
+                              "account_name": {
+                                "type": "string"
+                              },
+                              "ip_address": {
+                                "type": "string"
+                              },
+                              "user_agent": {
+                                "type": "string"
+                              },
+                              "operation_type": {
+                                "type": "string"
+                              },
+                              "operation_module": {
+                                "type": "string"
+                              },
+                              "operation_description": {
+                                "type": "string"
+                              },
+                              "operation_result": {
+                                "type": "string",
+                                "enum": [
+                                  "SUCCESS",
+                                  "FAILED"
+                                ],
+                                "x-apifox": {
+                                  "enumDescriptions": {
+                                    "SUCCESS": "",
+                                    "FAILED": ""
+                                  }
+                                }
+                              },
+                              "created_at": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apifox-orders": [
+                              "id",
+                              "account_id",
+                              "account_name",
+                              "ip_address",
+                              "user_agent",
+                              "operation_type",
+                              "operation_module",
+                              "operation_description",
+                              "operation_result",
+                              "created_at"
+                            ],
+                            "required": [
+                              "id",
+                              "account_id",
+                              "account_name",
+                              "ip_address",
+                              "user_agent",
+                              "operation_type",
+                              "operation_module",
+                              "operation_description",
+                              "operation_result"
+                            ],
+                            "x-apifox-ignore-properties": []
+                          }
+                        }
+                      },
+                      "required": [
+                        "total",
+                        "data"
+                      ],
+                      "x-apifox-orders": [
+                        "total",
+                        "data"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "required": [
+                    "status_code",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "status_code",
+                    "data"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "status_code": 200,
+                      "data": {
+                        "total": 1,
+                        "data": [
+                          {
+                            "id": 26,
+                            "account_id": 1,
+                            "account_name": "admin",
+                            "ip_address": "0.0.0.0",
+                            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+                            "operation_type": "CREATE",
+                            "operation_module": "organization",
+                            "operation_description": "CREATE organization",
+                            "operation_result": "SUCCESS",
+                            "created_at": "2025-05-25T14:21:44.135706Z"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/6359336/apis/api-300550841-run",
         "security": [
           {
             "bearer": []

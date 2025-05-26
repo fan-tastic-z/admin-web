@@ -6,6 +6,7 @@ import Dashboard from './pages/dashboard'
 import RolePage from './pages/roles'
 import AccountPage from './pages/accounts'
 import MenuPage from './pages/menus'
+import OperationLogsPage from './pages/operation-logs'
 import Layout from './components/layout'
 import { AuthProvider } from './contexts/auth'
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="roles" element={<RolePage />} />
               <Route path="accounts" element={<AccountPage />} />
               <Route path="menus" element={<MenuPage />} />
+              <Route path="operation-logs" element={<OperationLogsPage />} />
             </Route>
           </Routes>
         </Router>

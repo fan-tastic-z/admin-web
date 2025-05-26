@@ -106,61 +106,61 @@ export default function Dashboard() {
       </div>
 
       {/* API状态检查 */}
-      <div className="rounded-lg bg-white p-4 shadow">
+      <div className="p-4 bg-white rounded-lg shadow">
         <ApiStatus />
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-lg bg-white p-6 shadow">
+        <div className="p-6 bg-white rounded-lg shadow">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Users className="h-8 w-8 text-blue-600" />
+              <Users className="w-8 h-8 text-blue-600" />
             </div>
-            <div className="ml-5 w-0 flex-1">
+            <div className="flex-1 ml-5 w-0">
               <dl>
-                <dt className="truncate text-sm font-medium text-gray-500">用户总数</dt>
+                <dt className="text-sm font-medium text-gray-500 truncate">用户总数</dt>
                 <dd className="text-lg font-medium text-gray-900">{usersData || 0}</dd>
               </dl>
             </div>
           </div>
         </div>
 
-        <div className="rounded-lg bg-white p-6 shadow">
+        <div className="p-6 bg-white rounded-lg shadow">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <UserCheck className="h-8 w-8 text-green-600" />
+              <UserCheck className="w-8 h-8 text-green-600" />
             </div>
-            <div className="ml-5 w-0 flex-1">
+            <div className="flex-1 ml-5 w-0">
               <dl>
-                <dt className="truncate text-sm font-medium text-gray-500">角色总数</dt>
+                <dt className="text-sm font-medium text-gray-500 truncate">角色总数</dt>
                 <dd className="text-lg font-medium text-gray-900">{rolesData || 0}</dd>
               </dl>
             </div>
           </div>
         </div>
 
-        <div className="rounded-lg bg-white p-6 shadow">
+        <div className="p-6 bg-white rounded-lg shadow">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Building className="h-8 w-8 text-purple-600" />
+              <Building className="w-8 h-8 text-purple-600" />
             </div>
-            <div className="ml-5 w-0 flex-1">
+            <div className="flex-1 ml-5 w-0">
               <dl>
-                <dt className="truncate text-sm font-medium text-gray-500">组织总数</dt>
+                <dt className="text-sm font-medium text-gray-500 truncate">组织总数</dt>
                 <dd className="text-lg font-medium text-gray-900">{organizationsData || 0}</dd>
               </dl>
             </div>
           </div>
         </div>
 
-        <div className="rounded-lg bg-white p-6 shadow">
+        <div className="p-6 bg-white rounded-lg shadow">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Menu className="h-8 w-8 text-orange-600" />
+              <Menu className="w-8 h-8 text-orange-600" />
             </div>
-            <div className="ml-5 w-0 flex-1">
+            <div className="flex-1 ml-5 w-0">
               <dl>
-                <dt className="truncate text-sm font-medium text-gray-500">菜单总数</dt>
+                <dt className="text-sm font-medium text-gray-500 truncate">菜单总数</dt>
                 <dd className="text-lg font-medium text-gray-900">{menusData || 0}</dd>
               </dl>
             </div>
@@ -168,7 +168,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="rounded-lg bg-white shadow">
+      <div className="bg-white rounded-lg shadow">
         <div className="px-4 py-5 sm:p-6">
           <h3 className="text-lg font-medium leading-6 text-gray-900">系统概览</h3>
           <div className="mt-5">

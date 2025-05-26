@@ -161,7 +161,7 @@ export default function RolePage() {
                         {role.created_by_name || role.created_by || '-'}
                       </td>
                       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                        {role.is_deleteable ? '是' : '否'}
+                        {role.is_deletable ? '是' : '否'}
                       </td>
                       <td className="whitespace-nowrap px-6 py-4 text-sm font-medium">
                         <div className="flex space-x-2">
@@ -171,7 +171,7 @@ export default function RolePage() {
                           >
                             <Edit className="h-4 w-4" />
                           </button>
-                          {role.is_deleteable && (
+                          {role.is_deletable && (
                             <button className="text-red-600 hover:text-red-900">
                               <Trash2 className="h-4 w-4" />
                             </button>

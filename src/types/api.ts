@@ -57,7 +57,7 @@ export interface Role {
   id: number
   name: string
   description?: string
-  is_deleteable: boolean
+  is_deletable: boolean
   menus: Menu[]
   created_at?: string
   updated_at?: string
@@ -67,7 +67,7 @@ export interface Role {
 export interface CreateRoleRequest {
   name: string
   description?: string
-  is_deleteable: boolean
+  is_deletable: boolean
   menus: {
     menu_id: number
     menu_name: string
@@ -142,8 +142,25 @@ export interface BackendRole {
   description?: string
   created_by: number
   created_by_name: string
-  is_deleteable: boolean
+  is_deletable: boolean
 }
 
 // 后端角色列表响应
 export type BackendRolesResponse = BackendResponse<BackendPaginationData<BackendRole>>
+
+// 操作日志
+export interface OperationLog {
+  id: number
+  account_id: number
+  account_name: string
+  ip_address: string
+  user_agent: string
+  operation_type: string
+  operation_module: string
+  operation_description: string
+  operation_result: 'SUCCESS' | 'FAILED'
+  created_at: string
+}
+
+// 后端操作日志响应
+export type BackendOperationLogsResponse = BackendResponse<BackendPaginationData<OperationLog>>

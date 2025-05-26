@@ -25,7 +25,7 @@ function getMenuPath(menuName: string): string {
     角色设置: '/roles',
     组织管理: '/accounts',
     菜单管理: '/menus',
-    用户操作日志: '/logs',
+    用户操作日志: '/operation-logs',
     系统设置: '/settings',
     权限管理: '/permissions',
   }
@@ -96,7 +96,7 @@ function getDefaultMenus(): UserMenu[] {
         {
           id: 993,
           name: '用户操作日志',
-          path: '/logs',
+          path: '/operation-logs',
           icon: 'file-text',
           selected: false,
           partial_selected: false,

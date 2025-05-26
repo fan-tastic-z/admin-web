@@ -12,7 +12,7 @@ import { CreateRoleRequest, Role } from '@/types/api'
 const roleFormSchema = z.object({
   name: z.string().min(1, '角色名称不能为空').max(50, '角色名称不能超过50个字符'),
   description: z.string().optional(),
-  is_deleteable: z.boolean().default(true),
+  is_deletable: z.boolean().default(true),
   menus: z
     .array(
       z.object({
@@ -47,7 +47,7 @@ export default function RoleForm({ role, onSuccess, onCancel }: RoleFormProps) {
     defaultValues: {
       name: role?.name || '',
       description: role?.description || '',
-      is_deleteable: role?.is_deleteable ?? true,
+      is_deletable: role?.is_deletable ?? true,
       menus: role?.menus || [],
     },
   })
@@ -117,7 +117,7 @@ export default function RoleForm({ role, onSuccess, onCancel }: RoleFormProps) {
       const payload: CreateRoleRequest = {
         name: data.name,
         description: data.description,
-        is_deleteable: data.is_deleteable,
+        is_deletable: data.is_deletable,
         menus: data.menus,
       }
 
@@ -351,12 +351,12 @@ export default function RoleForm({ role, onSuccess, onCancel }: RoleFormProps) {
       {/* 是否可删除 */}
       <div className="flex items-center">
         <input
-          id="is_deleteable"
+          id="is_deletable"
           type="checkbox"
-          {...register('is_deleteable')}
+          {...register('is_deletable')}
           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
         />
-        <label htmlFor="is_deleteable" className="ml-2 block text-sm text-gray-700">
+        <label htmlFor="is_deletable" className="ml-2 block text-sm text-gray-700">
           允许删除此角色
         </label>
       </div>
